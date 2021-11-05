@@ -11,7 +11,7 @@ html
   body
     nav#navbar.navbar.navbar-light.bg-light.fixed-top
       a.navbar-brand(href='#')
-        img.mr-2(src='https://image.flaticon.com/icons/png/512/819/819861.png' width='30px')
+        img.mr-2(src='./public/pizza-icon.png' width='30px')
         | The Pizza Palace
       a.nav-link#pannier
         i.bi.bi-cart3.mr-2
@@ -30,12 +30,12 @@ html
       form#order-form
         div.form-row.justify-content-center.form-group
           p.col-12.h3 Select your pizza
-          each pizza in ['mozzarella', 'margarita', '4-cheeses', 'full-on', 'vegetarian', 'meat-lovers', 'pepperoni', 'goat']
+          each pizza in ['mozzarella', 'margarita', '4-cheese', 'full-on', 'vegetarian', 'meat-lovers', 'pepperoni', 'goat']
             div.square-container.col-6.col-sm-4
               div.pizza-tile
                 input.form-check(id=`pizza_${pizza}` type='radio' name='pizza-type' value=`pizza_${pizza}` checked=(pizza == 'mozzarella' ? true : false))
                 label.form-label(for=`pizza_${pizza}`)
-                  img(src='https://bellasunluci.com/public/uploads/recipes/thumbnail-mediterranean-flatbread.jpg')
+                  img(src=`./public/${pizza}.jpg`)
                   div
                     i.bi.bi-cart.mr-1
                     - let pizza_text = pizza.replace('-', ' ').replace(/\b\w/gi,(c) => c.toUpperCase());
@@ -61,8 +61,9 @@ html
           textarea#comments.form-control(rows='3')
         div.d-flex.justify-content-center.flex-wrap
           button#submit.btn.btn-primary.mb-3.mr-3.flex-shrink-0(type='submit') Add to your cart
-          button#checkout.btn.btn-primary.mb-3.flex-shrink-0(type='submit') Add to your cart & Checkout
+          button#checkout.btn.btn-secondary.mb-3.flex-shrink-0(type='submit') Add to your cart & Checkout
     
-    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous")
     script(src='./script.js')
